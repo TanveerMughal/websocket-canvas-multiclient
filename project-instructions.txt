@@ -1,0 +1,62 @@
+﻿Real-time Canvas Application - Technical Assessment
+
+
+Time Expectation: Important!!!
+This task should be completed in 2 hours.
+To track your work time:
+* Create a repository and push an initial commit (e.g., a README.md or empty project structure) at the start of your work.
+
+* Push your final changes at the end of the task.
+
+
+This assessment evaluates full-stack development skills, real-time application architecture, and modern JavaScript/TypeScript proficiency.
+
+
+Overview
+Build a collaborative real-time canvas application that demonstrates proficiency in full-stack development, real-time communication, and state management.
+Technology Requirements
+Frontend
+• React.js with TypeScript
+• Tailwind CSS for styling
+• React/Zustand for state management
+• React Konva for canvas manipulation
+• Socket.io-client for real-time communication
+Backend
+• Node.js with TypeScript or Python
+• Socket.io for WebSocket communication
+Feature Requirements
+Core Functionality
+1. Canvas Stage: Create a Konva stage (HTML5 Canvas) as the primary drawing surface
+2. Rectangle Creation: Implement a control to dynamically add rectangles to the canvas
+3. Drag & Drop: Enable draggable rectangles with real-time position updates
+4. Multi-client Synchronization: Ensure all connected clients see changes in real-time
+Frontend Implementation
+• Initialize a Konva Stage component
+• Implement an "Add Rectangle" button that:
+   • Creates a new rectangle on the canvas (Every click creates a new rect.)
+   • Broadcasts the creation event via Socket.io
+• Configure rectangles with drag functionality using Konva's draggable prop
+• Implement (onDragMove) callback to emit position updates to the server
+• Handle incoming socket events to sync rectangles from other clients
+Backend Implementation
+• Set up a Socket.io server to manage client connections
+• Handle the following events:
+   • rectangle: add - Broadcast new rectangle creation to all connected clients
+   • rectangle: move - Broadcast position updates (x, y coordinates) to other clients
+• Maintain connection state and ensure proper event distribution
+Expected Behavior
+Opening multiple browser tabs should demonstrate real-time synchronization:
+• Adding rectangles in one tab should immediately appear in all other tabs
+• Dragging rectangles should show live position updates across all connected sessions
+• The application should handle multiple concurrent users seamlessly
+Evaluation Criteria
+• Code Quality: Clean, readable, and well-structured TypeScript code
+• Architecture: Proper separation of concerns and component organization
+• Real-time Functionality: Smooth, responsive real-time updates
+• State Management: Effective use of MobX for client-side state
+• Error Handling: Graceful handling of connection issues and edge cases
+• User Experience: Intuitive interface and smooth interactions
+Deliverables
+• Complete source code for both frontend and backend
+• Basic documentation for setup and running the application
+• Any additional features or improvements you consider valuable
