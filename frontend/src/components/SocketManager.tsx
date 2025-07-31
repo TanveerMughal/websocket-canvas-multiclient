@@ -23,16 +23,13 @@ export const SocketManager = () => {
   const { setRectangles, addRectangle, updateRectanglePosition } = useStore();
 
   useEffect(() => {
-    console.log('SocketManager useEffect is running');
     const onConnect = () => {
-      console.log("connected");
-      socket.emit('get_initial_state');
+      socket.emit("get_initial_state");
     };
 
     const onDisconnect = () => console.log("disconnected");
 
     const onInitialRectangles = (rectangles: Rectangle[]) => {
-      console.log('Received initial rectangles:', rectangles);
       setRectangles(rectangles);
     };
 
@@ -44,7 +41,6 @@ export const SocketManager = () => {
       updateRectanglePosition(rectangle.id, rectangle.x, rectangle.y);
     };
 
-    // If socket is already connected, manually call onConnect
     if (socket.connected) {
       onConnect();
     }

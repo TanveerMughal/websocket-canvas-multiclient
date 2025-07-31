@@ -1,4 +1,3 @@
-
 import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
@@ -42,7 +41,7 @@ io.on('connection', (socket) => {
     'rectangle:move',
     (movedRectangle: { id: string; x: number; y: number }) => {
       const rectToUpdate = rectangles.find(
-        (rect) => rect.id === movedRectangle.id
+        (rect) => rect.id === movedRectangle.id,
       );
       if (rectToUpdate) {
         const updatedRect = {
@@ -51,11 +50,11 @@ io.on('connection', (socket) => {
           y: movedRectangle.y,
         };
         rectangles = rectangles.map((rect) =>
-          rect.id === updatedRect.id ? updatedRect : rect
+          rect.id === updatedRect.id ? updatedRect : rect,
         );
         io.emit('rectangle:move', updatedRect);
       }
-    }
+    },
   );
 
   socket.on('disconnect', () => {
