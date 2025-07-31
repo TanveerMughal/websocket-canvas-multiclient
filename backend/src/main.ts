@@ -19,7 +19,7 @@ interface Rectangle {
   fill: string;
 }
 
-let rectangles: Rectangle[] = [];
+let rectangles: Array<Rectangle> = [];
 
 io.on('connection', (socket) => {
   console.log('a user connected');
