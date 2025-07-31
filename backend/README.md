@@ -6,7 +6,7 @@ This is the backend for the real-time canvas application. It uses Node.js, Expre
 
 ### Prerequisites
 
-- Node.js (v22.11 or later)
+- Node.js (24+)
 - npm
 
 ### Installation
